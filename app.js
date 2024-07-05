@@ -9,7 +9,6 @@ const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 3000;
 //Express
 
-
 //Final
 
 
@@ -38,3 +37,6 @@ app.use('/api', authenticateJWT, passengerRoutes);
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
+
+
+
