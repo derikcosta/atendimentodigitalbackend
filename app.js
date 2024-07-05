@@ -34,9 +34,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api', authenticateJWT, passengerRoutes);
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+// app.listen(3000, () => {
+//   console.log('Server is running on port 3000');
+// });
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });
-
-
-
