@@ -1,180 +1,179 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "title": "Passenger API",
-      "version": "1.0.0"
-    },
-    "host": "localhost:3000",
-    "basePath": "/api",
-    "schemes": [
-      "http"
-    ],
-    "securityDefinitions": {
-      "OAuth2": {
-        "type": "oauth2",
-        "flow": "password",
-        "tokenUrl": "http://localhost:3000/api/auth/token",
-        "scopes": {}
-      }
-    },
-    "security": [
-      {
-        "OAuth2": []
-      }
-    ],
-    "paths": {
-      "/passengers": {
-        "get": {
-          "summary": "Get all passengers",
-          "security": [
-            {
-              "OAuth2": []
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
+  "swagger": "2.0",
+  "info": {
+    "title": "Passenger API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "flow": "password",
+      "tokenUrl": "http://localhost:3000/api/auth/token",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
+  "paths": {
+    "/passengers": {
+      "get": {
+        "summary": "Get all passengers",
+        "security": [
+          {
+            "OAuth2": []
           }
-        },
-        "post": {
-          "summary": "Create a new passenger",
-          "security": [
-            {
-              "OAuth2": []
-            }
-          ],
-          "parameters": [
-            {
-              "name": "passenger",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Passenger"
-              }
-            }
-          ],
-          "responses": {
-            "201": {
-              "description": "Created"
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       },
-      "/passengers/{id}": {
-        "get": {
-          "summary": "Get passenger by ID",
-          "security": [
-            {
-              "OAuth2": []
-            }
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "integer"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            },
-            "404": {
-              "description": "Passenger not found"
+      "post": {
+        "summary": "Create a new passenger",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "passenger",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Passenger"
             }
           }
-        },
-        "put": {
-          "summary": "Update passenger by ID",
-          "security": [
-            {
-              "OAuth2": []
-            }
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "integer"
-            },
-            {
-              "name": "passenger",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Passenger"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            },
-            "404": {
-              "description": "Passenger not found"
-            }
-          }
-        },
-        "delete": {
-          "summary": "Delete passenger by ID",
-          "security": [
-            {
-              "OAuth2": []
-            }
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "integer"
-            }
-          ],
-          "responses": {
-            "204": {
-              "description": "No Content"
-            },
-            "404": {
-              "description": "Passenger not found"
-            }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
           }
         }
       }
     },
-    "definitions": {
-      "Passenger": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
+    "/passengers/{id}": {
+      "get": {
+        "summary": "Get passenger by ID",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
-          "email": {
-            "type": "string"
+          "404": {
+            "description": "Passenger not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update passenger by ID",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
           },
-          "cpf": {
-            "type": "string"
+          {
+            "name": "passenger",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Passenger"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
-          "rg": {
-            "type": "string"
+          "404": {
+            "description": "Passenger not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete passenger by ID",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
           },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date"
-          },
-          "sex": {
-            "type": "string"
-          },
-          "gender": {
-            "type": "string"
-          },
-          "socialName": {
-            "type": "string"
+          "404": {
+            "description": "Passenger not found"
           }
         }
       }
     }
+  },
+  "definitions": {
+    "Passenger": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "rg": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date"
+        },
+        "sex": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "socialName": {
+          "type": "string"
+        }
+      }
+    }
   }
-  
+}
