@@ -79,6 +79,11 @@ sequelize.sync({ force: false }).then(() => {
 
 
 // Inicia o servidor na porta especificada
-app.listen(port, () => {
+// app.listen(port, () => {
+//   console.log(`Servidor rodando na porta ${port}`);
+// });
+
+// Iniciar o servidor
+app.listen(port, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
